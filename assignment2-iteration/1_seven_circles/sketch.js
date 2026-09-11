@@ -3,9 +3,9 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(220);
 
-for(a = 50; a < 400; a = a + 50){
+for(let a = 50; a < 400; a = a + 50){
   circle(a,100,20)
   fill(211, 211, 211)
 }
