@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yixi Tang — Homepage</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="p5.js"></script>
+</head>
+<body>
+  <header><button id="hello-toggle" type="button">hello</button><a class="assignment-home" href="#home">← home</a></header>
+  <aside aria-label="Assignments">
+    <a id="assignment-link" href="#assignment-2">ASSIGNMENT 2</a>
+    <a id="midterm-link" href="#midterm">MIDTERM</a>
+  </aside>
+  <main id="home-canvas" aria-label="Yixi Tang interactive homepage"></main>
+  <section id="assignment-panel" aria-label="Assignment 2" hidden>
+    <iframe title="Assignment 2 — Iteration" data-src="assignment2-iteration/index.html"></iframe>
+  </section>
+  <section id="midterm-panel" aria-label="Midterm" hidden>
+    <iframe title="Midterm" data-src="midterm/index.html"></iframe>
+  </section>
+  <script src="sketch.js"></script>
+  <script>
+    const panel = document.getElementById('assignment-panel');
+    const assignmentLink = document.getElementById('assignment-link');
+    const midtermPanel = document.getElementById('midterm-panel');
+    const helloButton = document.getElementById('hello-toggle');
+    function showPage() {
+      const isAssignment = location.hash === '#assignment-2';
+      const isMidterm = location.hash === '#midterm';
+      const isProject = isAssignment || isMidterm;
+      document.body.classList.toggle('view-assignment', isProject);
+      midtermPanel.hidden = !isMidterm;
+      panel.hidden = !isAssignment;
+      const midtermFrame = midtermPanel.querySelector('iframe');
+      if (isMidterm) {
+        if (!midtermFrame.getAttribute('src')) midtermFrame.src = midtermFrame.dataset.src;
+      } else {
+        midtermFrame.removeAttribute('src');
+      }
+      document.getElementById('home-canvas').hidden = isProject;
+      if (isAssignment) {
+        assignmentLink.setAttribute('aria-current', 'page');
+        const frame = panel.querySelector('iframe');
+        if (!frame.getAttribute('src')) frame.src = frame.dataset.src;
+        noLoop();
+      } else {
+        assignmentLink.removeAttribute('aria-current');
+        if (isMidterm) noLoop();
+        else loop();
+      }
+    }
+    helloButton.addEventListener('click', () => {
+      page = page === 'home' ? 'hello' : 'home';
+      helloButton.textContent = page === 'hello' ? 'yixitang' : 'hello';
+      makeGlow();
+      if (location.hash === '#assignment-2' || location.hash === '#midterm') location.hash = 'home';
+    });
+    assignmentLink.addEventListener('click', () => {
+      const frame = panel.querySelector('iframe');
+      frame.src = frame.dataset.src;
+    });
+    window.addEventListener('hashchange', showPage);
+    window.addEventListener('load', showPage);
+  </script>
+</body>
+</html>

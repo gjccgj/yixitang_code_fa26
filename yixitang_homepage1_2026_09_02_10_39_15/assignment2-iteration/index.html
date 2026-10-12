@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment 2 - Iteration</title>
+
+    <style>
+
+        body {
+            background-color: black;
+            color: white;
+
+            font-family: Helvetica, Arial, sans-serif;
+
+            padding: clamp(16px, 5vw, 50px);
+            margin: 0;
+        }
+
+
+        h1 {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 400;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 8px white,
+                0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+
+        ol {
+            margin-top: 50px;
+        }
+
+
+        li {
+            margin-bottom: 25px;
+        }
+
+
+        a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: 300;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+
+        a:hover {
+            text-shadow:
+                0 0 10px white,
+                0 0 20px white,
+                0 0 30px white;
+        }
+
+        .assignment-layout { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr); gap: clamp(40px, 7vw, 120px); align-items: center; max-width: 1280px; margin: 0 auto; }
+        h1 { max-width: 1280px; margin-left: auto; margin-right: auto; }
+        .project-intro { max-width: 510px; padding: 24px 0; }
+        .project-intro h2 { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.35; font-weight: 400; letter-spacing: 1px; text-shadow: 0 0 8px #ffffff90, 0 0 20px #ffffff40; margin: 0 0 26px; }
+        .project-intro p { font-size: clamp(16px, 1.5vw, 19px); font-weight: 300; line-height: 1.9; letter-spacing: .4px; color: #ccc; text-shadow: 0 0 8px #ffffff35; margin: 0; }
+        @media (max-width: 760px) { .assignment-layout { grid-template-columns: 1fr; gap: 12px; } .project-intro { max-width: none; padding-bottom: 40px; } }
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>Assignment 2 - Iteration</h1>
+
+    <main class="assignment-layout">
+    <nav aria-label="Iteration studies">
+
+        <ol>
+
+            <li>
+                <a href="1_seven_circles/index.html">
+                    Seven Circles
+                </a>
+            </li>
+
+            <li>
+                <a href="2_transitioning_rectangles/index.html">
+                    Transitioning Rectangles
+                </a>
+            </li>
+
+            <li>
+                <a href="3_stiring_art/index.html">
+                    Stiring Art
+                </a>
+            </li>
+
+            <li>
+                <a href="4_receding_landscape/index.html">
+                    Receding Landscape
+                </a>
+            </li>
+
+            <li>
+                <a href="5_lines_to_cursor/index.html">
+                    Lines to Cursor
+                </a>
+            </li>
+
+            <li>
+                <a href="6_color_bar_gradient/index.html">
+                    Color Bar Gradient
+                </a>
+            </li>
+
+            <li>
+                <a href="7_nested_checkers/index.html">
+                    Nested Checkers
+                </a>
+            </li>
+
+            <li>
+                <a href="8_geometric_progression/index.html">
+                    Geometric Progression
+                </a>
+            </li>
+
+        </ol>
+
+    </nav>
+    <section class="project-intro" aria-label="About this assignment">
+        <h2>Exploring form through iteration.</h2>
+        <p>A series of computational studies in JavaScript using p5.js, exploring iteration as both a programming principle and a visual language. Through loops, repetition, and incremental variation, simple rules unfold into rhythm, structure, and complexity—revealing how code can shape expressive visual experiences.</p>
+    </section>
+    </main>
+
+</body>
+
+</html>

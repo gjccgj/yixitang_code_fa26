@@ -1,0 +1,31 @@
+* { box-sizing: border-box; }
+:root { --sidebar: 210px; --header: 64px; }
+html, body { margin: 0; padding: 0; background: #000; color: #fff; font-family: Helvetica, Arial, sans-serif; }
+[hidden] { display: none !important; }
+header { position: fixed; inset: 0 0 auto; height: var(--header); background: #0f0f0f; z-index: 3; display: flex; align-items: center; padding: 0 32px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+header button { padding: 0; border: 0; background: none; color: #fff; font: bold 24px Helvetica, Arial, sans-serif; cursor: pointer; }
+aside { position: fixed; left: 0; top: var(--header); bottom: 0; width: var(--sidebar); padding: 42px 28px; background: #000; border-right: 0; z-index: 2; }
+aside a { display: block; color: #fff; text-decoration: none; font-size: 19px; font-weight: 400; letter-spacing: 1px; white-space: nowrap; text-shadow: 0 0 8px #ffffff80; transition: text-shadow .2s; }
+aside a:hover, aside a[aria-current] { text-shadow: 0 0 10px #fff, 0 0 24px #ffffffb3; }
+aside #home-link { margin-top: 32px; font-size: 14px; color: #bbb; }
+a:focus-visible, button:focus-visible { outline: 1px solid white; outline-offset: 8px; }
+#home-canvas, #assignment-panel { position: fixed; left: var(--sidebar); top: var(--header); right: 0; bottom: 0; }
+canvas { display: block; }
+iframe { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+@media (max-width: 600px) {
+  :root { --sidebar: 136px; }
+  header { padding: 0 20px; }
+  aside { padding: 30px 14px; }
+  aside a { font-size: 15px; letter-spacing: .3px; }
+}
+
+/* Give assignments the full viewport width without a sidebar. */
+.assignment-home { display: none; color: #fff; text-decoration: none; margin-left: 0; font-size: 14px; text-shadow: 0 0 8px #ffffff80; }
+.view-assignment aside, .view-assignment #hello-toggle { display: none; }
+.view-assignment header { background: #000; }
+.view-assignment .assignment-home { display: block; }
+.view-assignment #assignment-panel { left: 0; }
+
+aside #midterm-link { margin-top: 30px; }
+#midterm-panel { position: fixed; inset: var(--header) 0 0; display: block; padding: 0; background: #000; }
