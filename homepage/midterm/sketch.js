@@ -4,7 +4,7 @@ let cir_size = 17;
 let encounters = [];
 
 function setup() {
-  createCanvas(document.documentElement.clientWidth, windowHeight).parent("artwork");
+  createCanvas(document.documentElement.clientWidth, Math.max(1, windowHeight - 64)).parent("artwork");
   rectMode(CENTER);
 
   for (let i = 0; i < 50; i++) {
@@ -182,5 +182,5 @@ function draw() {
 
 
 function windowResized() {
-  resizeCanvas(document.documentElement.clientWidth, windowHeight);
+  resizeCanvas(document.documentElement.clientWidth, Math.max(1, windowHeight - 64));
 }
