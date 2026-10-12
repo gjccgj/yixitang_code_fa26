@@ -1,7 +1,10 @@
-body{
-    margin: 0;
-}
-
-canvas {
-    display: block;
-}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #000; color: #fff; font-family: Helvetica, Arial, sans-serif; }
+html { scrollbar-width: thin; scrollbar-color: #555 #000; }
+body { overflow-x: hidden; }
+#artwork { width: 100%; }
+canvas { display: block; max-width: 100%; }
+.project-statement { width: min(100%, 900px); margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(24px, 6vw, 64px); }
+.project-statement p { margin: 0 0 28px; color: #ccc; font-size: clamp(16px, 1.6vw, 20px); font-weight: 300; line-height: 1.9; letter-spacing: .4px; text-shadow: 0 0 8px #ffffff35; }
+.project-statement p:first-child { color: #fff; text-shadow: 0 0 10px #ffffff50; }
+.project-statement p:last-child { margin-bottom: 0; }
