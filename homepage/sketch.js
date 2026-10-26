@@ -16,7 +16,29 @@ function setup() {
 function makeGlow() {
   if (glow) glow.remove();
   glow = createGraphics(width, height);
-  var txt = (page === 'home') ? 'yixi tang' : 'hello';
+  if (page === 'home') {
+    const ctx = glow.drawingContext;
+    const fontSize = min(width * 0.085, 100);
+    const spacing = fontSize * 0.13;
+    const letters = Array.from('YIXI TANG');
+    ctx.save();
+    ctx.font = `200 ${fontSize}px "Helvetica Neue", Helvetica, Arial, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#f5f5f5';
+    ctx.shadowColor = 'rgba(255,255,255,0.22)';
+    ctx.shadowBlur = 10;
+    const textWidth = letters.reduce((sum, letter) => sum + ctx.measureText(letter).width, 0)
+      + spacing * (letters.length - 1);
+    let x = (width - textWidth) / 2;
+    for (const letter of letters) {
+      ctx.fillText(letter, x, height / 2);
+      x += ctx.measureText(letter).width + spacing;
+    }
+    ctx.restore();
+    return;
+  }
+  var txt = 'hello';
   glow.textAlign(CENTER, CENTER);
   glow.textSize(fs);
   glow.textStyle(BOLD);
